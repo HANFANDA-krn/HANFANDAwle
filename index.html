@@ -4,17 +4,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>HANFANDA — Biodata Hewan Darat</title>
-  <meta name="description" content="HANFANDA: Ensiklopedia mini hewan darat dengan peta interaktif, favorit, bandingkan, kuis, dan tambah data." />
+  <meta name="description" content="HANFANDA: Ensiklopedia mini hewan darat dengan peta interaktif bergaya globe, warna bendera, dan filter negara." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-
-  <!-- Leaflet (peta) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Latar animasi abstrak hitam -->
+  <!-- Latar animasi abstrak -->
   <div class="bg" aria-hidden="true">
     <div class="bg-layer blob blob-a"></div>
     <div class="bg-layer blob blob-b"></div>
@@ -30,15 +28,11 @@
         <span class="brand-top">HANFANDA</span>
         <span class="brand-main">Biodata Hewan Darat</span>
       </h1>
+      <p class="tagline">Peta globe • Warna bendera • Pilih negara untuk melihat hewan yang hidup di sana.</p>
 
-      <p class="tagline">
-        Eksplorasi hewan darat gaya elegan‑soft dengan peta interaktif, animasi abstrak hitam, dan perpaduan font.
-      </p>
-
-      <!-- Toolbar utama -->
       <div class="controls">
         <label class="control search">
-          <input id="search" type="search" placeholder="Cari hewan (contoh: harimau, gajah, komodo)..." autocomplete="off" />
+          <input id="search" type="search" placeholder="Cari hewan (contoh: singa, jerapah, panda)..." autocomplete="off" />
           <span class="kbd">/</span>
         </label>
 
@@ -53,44 +47,35 @@
           </select>
         </label>
 
-        <button id="favOnly" class="btn ghost" aria-pressed="false" title="Tampilkan hanya favorit">★ Favorit</button>
-        <button id="openCompare" class="btn" disabled title="Bandingkan hewan terpilih">
-          Bandingkan (<span id="compareCount">0</span>)
-        </button>
-        <button id="openQuiz" class="btn ghost" title="Mainkan kuis tebak hewan">Kuis</button>
-
-        <label class="control theme">
-          <span>Tema</span>
-          <select id="themeSelect">
-            <option value="dark">Dark Soft</option>
-            <option value="onyx">Onyx</option>
-            <option value="noir">Noir Blue</option>
-          </select>
-        </label>
-        <button id="motion" class="btn ghost" aria-pressed="true" title="Aktif/Nonaktifkan animasi">Gerak: On</button>
-
-        <button id="toggleMap" class="btn">Peta: On</button>
         <button id="density" class="btn ghost" aria-pressed="false" title="Ubah kerapatan tampilan">Kerapatan</button>
       </div>
     </div>
   </header>
 
-  <!-- Peta Interaktif -->
   <main class="container">
+    <!-- Peta Interaktif: Globe -->
     <section id="mapSection" class="map-section">
       <div class="map-toolbar glass">
         <div class="map-left">
-          <strong class="mono">Peta</strong>
+          <strong class="mono">Peta (Globe)</strong>
           <label class="inl"><input type="checkbox" id="showMarkers" checked /> Marker</label>
           <label class="inl"><input type="checkbox" id="showRanges" checked /> Sebaran</label>
         </div>
         <div class="map-right">
-          <button id="locateMe" class="btn ghost" title="Cari habitat terdekat">Terdekat di Sekitar</button>
-          <button id="fitAll" class="btn ghost" title="Zoom agar semua habitat terlihat">Zoom Semua</button>
+          <div class="country-select">
+            <span class="mono">Negara</span>
+            <select id="countrySelect">
+              <option value="">— Pilih negara —</option>
+            </select>
+            <button id="clearCountry" class="btn ghost" title="Hapus filter negara">Bersihkan</button>
+            <span id="flagSwatch" class="flag-swatch" title="Warna bendera"></span>
+          </div>
+          <button id="fitVisible" class="btn ghost" title="Zoom agar hasil yang terlihat pas">Zoom Hasil</button>
+          <button id="fitAll" class="btn ghost" title="Zoom Semua Habitat">Zoom Semua</button>
         </div>
       </div>
       <div id="map" role="region" aria-label="Peta habitat hewan"></div>
-      <p class="map-note muted">Cakupan sebaran bersifat perkiraan untuk tampilan edukasi.</p>
+      <p class="map-note muted">Sebaran bersifat perkiraan untuk edukasi. Klik negara atau pilih dari dropdown untuk menampilkan hewan yang ada di negara tersebut.</p>
     </section>
 
     <!-- Grid kartu -->
@@ -101,27 +86,15 @@
         <div class="empty-emoji" aria-hidden="true">🧐</div>
         <h3>Tidak ada hasil</h3>
         <p>Coba kata kunci lain atau hapus filter.</p>
-        <div class="empty-actions">
-          <button id="clearSearch" class="btn">Hapus Pencarian</button>
-          <button id="shareFav" class="btn ghost">Bagikan Favorit</button>
-        </div>
+        <button id="clearSearch" class="btn">Hapus Pencarian</button>
       </div>
     </div>
   </main>
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <p class="mono">HANFANDA — Dibuat dengan ♥ • Tipografi: Playfair Display, Inter, Space Mono.</p>
-      <p class="muted">Semua data contoh edukasi, bukan referensi ilmiah resmi.</p>
-      <div class="footer-actions">
-        <button id="shareFavFooter" class="btn ghost">Bagikan Favorit</button>
-        <button id="openHelp" class="btn ghost">Bantuan (?)</button>
-        <button id="openAdd" class="btn">Tambah Hewan</button>
-        <button id="btnExport" class="btn ghost">Export JSON</button>
-        <button id="btnImport" class="btn ghost">Import JSON</button>
-        <button id="btnResetData" class="btn ghost">Reset Data</button>
-        <input id="importFile" type="file" accept="application/json" class="hidden" />
-      </div>
+      <p class="mono">HANFANDA • Tipografi: Playfair Display, Inter, Space Mono.</p>
+      <p class="muted">Konten edukasi; sebaran geografis bersifat ilustratif.</p>
     </div>
   </footer>
 
@@ -149,126 +122,9 @@
         </div>
 
         <div class="modal-facts">
-          <h3>Fakta Menarik</h3>
+          <h3>Fakta Singkat</h3>
           <ul id="modalFacts" class="facts-list"></ul>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal Perbandingan -->
-  <div id="compareModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="compareTitle">
-    <div class="modal-backdrop" data-close></div>
-    <div class="modal-panel glass">
-      <button class="modal-close" aria-label="Tutup" data-close>&times;</button>
-      <div class="modal-content">
-        <h2 id="compareTitle" class="modal-title">Perbandingan</h2>
-        <div id="compareTable" class="compare-table"></div>
-        <div class="compare-actions">
-          <button id="clearSelected" class="btn ghost">Kosongkan Pilihan</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal Kuis -->
-  <div id="quizModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="quizTitle">
-    <div class="modal-backdrop" data-close></div>
-    <div class="modal-panel glass">
-      <button class="modal-close" aria-label="Tutup" data-close>&times;</button>
-      <div class="modal-content">
-        <h2 id="quizTitle" class="modal-title">Kuis: Tebak Hewan</h2>
-
-        <div class="quiz-head">
-          <div class="quiz-score mono">Skor: <span id="quizScore">0/0</span></div>
-          <div class="quiz-actions">
-            <button id="quizHint" class="btn ghost">Petunjuk lagi</button>
-            <button id="quizSkip" class="btn ghost">Lewati</button>
-          </div>
-        </div>
-
-        <ul id="quizHints" class="facts-list"></ul>
-
-        <div class="quiz-input">
-          <input id="quizGuess" type="text" placeholder="Tebak nama hewan..." />
-          <button id="quizCheck" class="btn">Cek</button>
-        </div>
-
-        <div id="quizFeedback" class="muted"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal Bantuan -->
-  <div id="helpModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="helpTitle">
-    <div class="modal-backdrop" data-close></div>
-    <div class="modal-panel glass">
-      <button class="modal-close" aria-label="Tutup" data-close>&times;</button>
-      <div class="modal-content">
-        <h2 id="helpTitle" class="modal-title">Pintasan & Tips</h2>
-        <ul class="facts-list">
-          <li>/ fokus ke pencarian</li>
-          <li>f toggle filter Favorit</li>
-          <li>c buka panel Perbandingan</li>
-          <li>q buka Kuis</li>
-          <li>? buka bantuan ini</li>
-          <li>Esc menutup modal</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal Tambah Hewan -->
-  <div id="addModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="addTitle">
-    <div class="modal-backdrop" data-close></div>
-    <div class="modal-panel glass">
-      <button class="modal-close" aria-label="Tutup" data-close>&times;</button>
-      <div class="modal-content">
-        <h2 id="addTitle" class="modal-title">Tambah Hewan</h2>
-        <form id="addForm" class="form-grid">
-          <label>Emoji
-            <input name="emoji" required placeholder="🐾" />
-          </label>
-          <label>Nama
-            <input name="name" required placeholder="Nama hewan" />
-          </label>
-          <label>Nama Latin
-            <input name="latin" required placeholder="Genus spesies" />
-          </label>
-          <label>Habitat
-            <input name="habitat" required placeholder="Deskripsi habitat" />
-          </label>
-          <label>Makanan
-            <input name="diet" required placeholder="Karnivora / Herbivora / Omnivora" />
-          </label>
-          <label>Status
-            <input name="status" required placeholder="Risiko Rendah, Rentan, Terancam Punah, ..." />
-          </label>
-          <label>Umur (tahun)
-            <input name="lifespan" type="number" min="1" required />
-          </label>
-          <label>Berat (kg)
-            <input name="weightKg" type="number" min="1" required />
-          </label>
-          <label>Tinggi/Panjang
-            <input name="length" required placeholder="contoh: 1–2 m" />
-          </label>
-          <label>Tag (pisahkan koma)
-            <input name="tags" placeholder="Asia, Karnivora, Ikonik" />
-          </label>
-          <label>Teaser
-            <input name="teaser" placeholder="Deskripsi singkat" />
-          </label>
-          <label>Fakta (pisahkan baris)
-            <textarea name="facts" rows="3" placeholder="Satu fakta per baris"></textarea>
-          </label>
-          <label>Lokasi Sebaran (lat,lng,radiusKm,label — satu per baris)
-            <textarea name="ranges" rows="4" placeholder="-8.57,119.48,50,Pulau Contoh"></textarea>
-          </label>
-          <div class="form-actions">
-            <button type="submit" class="btn">Simpan</button>
-          </div>
-        </form>
       </div>
     </div>
   </div>
@@ -276,7 +132,6 @@
   <!-- Toast -->
   <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
 
-  <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="" defer></script>
   <script src="script.js" defer></script>
 </body>
