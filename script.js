@@ -10,54 +10,14 @@ const animals = [
     funFact: "Lorengnya paling rapat dibanding subspecies harimau lain."
   },
   {
-    emoji: "🦎",
-    name: "Komodo",
-    species: "Varanus komodoensis",
-    category: "Reptil",
-    habitat: "Padang savana dan hutan kering Nusa Tenggara Timur",
-    diet: "Karnivora oportunis (bangkai, mamalia, burung)",
-    character: "Tenang, sabar menunggu, tetapi lincah saat berburu",
-    funFact: "Air liurnya mengandung lebih dari 50 jenis bakteri."
-  },
-  {
-    emoji: "🦜",
-    name: "Kakatua Raja",
-    species: "Probosciger aterrimus",
-    category: "Burung",
-    habitat: "Hutan hujan Papua dan Australia Utara",
-    diet: "Biji-bijian, kacang-kacangan, dan buah hutan",
-    character: "Cerdas, vokal, dan suka bersosialisasi",
-    funFact: "Jambul besar bisa ditegakkan saat berkomunikasi."
-  },
-  {
     emoji: "🦧",
     name: "Orangutan Kalimantan",
     species: "Pongo pygmaeus",
     category: "Mamalia",
     habitat: "Kanopi hutan tropis Kalimantan",
     diet: "Omnivora (buah, daun, serangga, madu)",
-    character: "Pendiam, penyayang, dan sangat pintar menggunakan alat",
-    funFact: "Menghabiskan hingga 90% waktunya di atas pohon."
-  },
-  {
-    emoji: "🐦",
-    name: "Burung Maleo",
-    species: "Macrocephalon maleo",
-    category: "Burung",
-    habitat: "Hutan dan pantai Sulawesi",
-    diet: "Serangga, buah, biji-bijian, dan siput darat",
-    character: "Setia, suka menggali pasir hangat untuk bertelur",
-    funFact: "Telurnya lima kali lebih besar daripada telur ayam!"
-  },
-  {
-    emoji: "🐸",
-    name: "Katak Bertanduk Suriname",
-    species: "Ceratophrys cornuta",
-    category: "Amfibi",
-    habitat: "Hutan lembap dataran rendah Amerika Selatan",
-    diet: "Serangga, invertebrata kecil, kadal, hingga mamalia kecil",
-    character: "Diam menunggu mangsa lewat, lalu menerkam kilat",
-    funFact: "Mulutnya bisa terbuka lebar hampir setengah tubuhnya."
+    character: "Pendiam, penyayang, dan pintar menggunakan alat",
+    funFact: "Menghabiskan 90% waktunya di atas pohon."
   },
   {
     emoji: "🐘",
@@ -70,6 +30,36 @@ const animals = [
     funFact: "Terkenal punya jaringan keluarga yang sangat erat."
   },
   {
+    emoji: "🦬",
+    name: "Anoa Pegunungan",
+    species: "Bubalus quarlesi",
+    category: "Mamalia",
+    habitat: "Hutan pegunungan Sulawesi",
+    diet: "Herbivora (rumput, daun muda, pakis)",
+    character: "Tangguh, pemalu, dan aktif saat pagi hari",
+    funFact: "Kerap disebut kerbau kerdil khas Sulawesi."
+  },
+  {
+    emoji: "🦎",
+    name: "Komodo",
+    species: "Varanus komodoensis",
+    category: "Reptil",
+    habitat: "Padang savana dan hutan kering Nusa Tenggara Timur",
+    diet: "Karnivora oportunis (bangkai, mamalia, burung)",
+    character: "Tenang menunggu mangsa, tetapi meledak cepat saat menyerang",
+    funFact: "Air liurnya mengandung lebih dari 50 jenis bakteri."
+  },
+  {
+    emoji: "🐊",
+    name: "Buaya Senyulong",
+    species: "Tomistoma schlegelii",
+    category: "Reptil",
+    habitat: "Sungai gambut Kalimantan dan Sumatra",
+    diet: "Ikan, moluska, dan mamalia kecil",
+    character: "Penyergap sabar dengan rahang panjang",
+    funFact: "Termasuk salah satu buaya terpanjang di Asia."
+  },
+  {
     emoji: "🦕",
     name: "Iguana Hijau",
     species: "Iguana iguana",
@@ -78,6 +68,56 @@ const animals = [
     diet: "Herbivora (daun, bunga, buah)",
     character: "Santai, pencinta sinar matahari, dan jago memanjat",
     funFact: "Dapat berenang dan menahan napas hingga 30 menit."
+  },
+  {
+    emoji: "🦜",
+    name: "Kakatua Raja",
+    species: "Probosciger aterrimus",
+    category: "Burung",
+    habitat: "Hutan hujan Papua dan Australia Utara",
+    diet: "Biji-bijian, kacang-kacangan, dan buah hutan",
+    character: "Cerdas, vokal, dan suka bersosialisasi",
+    funFact: "Jambul besar dapat ditegakkan saat berkomunikasi."
+  },
+  {
+    emoji: "🦩",
+    name: "Flamingo Karibia",
+    species: "Phoenicopterus ruber",
+    category: "Burung",
+    habitat: "Laguna garam Karibia dan Amerika Selatan",
+    diet: "Alga mikro, udang kecil, larva",
+    character: "Anggun, hidup berkelompok, dan senang berbaris",
+    funFact: "Warna merah muda berasal dari pigmen karotenoid makanan."
+  },
+  {
+    emoji: "🐦",
+    name: "Burung Maleo",
+    species: "Macrocephalon maleo",
+    category: "Burung",
+    habitat: "Hutan dan pantai Sulawesi",
+    diet: "Serangga, buah, biji-bijian, dan siput darat",
+    character: "Setia pada pasangan, rajin menggali pasir hangat",
+    funFact: "Telurnya lima kali lebih besar daripada telur ayam!"
+  },
+  {
+    emoji: "🐸",
+    name: "Katak Bertanduk Suriname",
+    species: "Ceratophrys cornuta",
+    category: "Amfibi",
+    habitat: "Hutan lembap dataran rendah Amerika Selatan",
+    diet: "Serangga, invertebrata, kadal, hingga mamalia kecil",
+    character: "Diam menunggu mangsa lewat, lalu menerkam kilat",
+    funFact: "Mulutnya bisa terbuka lebar hampir setengah tubuhnya."
+  },
+  {
+    emoji: "🦎",
+    name: "Axolotl Meksiko",
+    species: "Ambystoma mexicanum",
+    category: "Amfibi",
+    habitat: "Danau Xochimilco, Meksiko",
+    diet: "Cacing, moluska, krustasea kecil",
+    character: "Tenang, aktif malam hari, mudah penasaran",
+    funFact: "Mampu meregenerasi anggota tubuh, bahkan bagian jantung."
   }
 ];
 
@@ -134,9 +174,12 @@ function applyFilters() {
 }
 
 filterButtons.addEventListener("click", event => {
-  if (!event.target.classList.contains("filter-button")) return;
-  filterButtons.querySelectorAll(".filter-button").forEach(button => button.classList.remove("active"));
-  event.target.classList.add("active");
+  const target = event.target;
+  if (!target.classList.contains("filter-button")) return;
+
+  filterButtons.querySelectorAll(".filter-button")
+    .forEach(button => button.classList.remove("active"));
+  target.classList.add("active");
   applyFilters();
 });
 
