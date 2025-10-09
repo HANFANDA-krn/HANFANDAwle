@@ -65,12 +65,108 @@
       </div>
     </section>
 
-    <!-- Bagian lainnya tidak berubah -->
-    <!-- ... -->
+    <section id="biodata" class="zoo-biodata">
+      <header class="section-heading">
+        <h3>Biodata Kebun Binatang HANFANDA</h3>
+        <p>
+          Kami menyusun pusat edukasi fauna modern dengan fokus pada konservasi, pengalaman pengunjung,
+          dan kolaborasi ilmiah lintas disiplin.
+        </p>
+      </header>
+
+      <div class="biodata-grid">
+        <article class="bio-card">
+          <h4>Lokasi</h4>
+          <p>Jl. Flora Fauna No. 8, Kota Satwa, Indonesia</p>
+        </article>
+        <article class="bio-card">
+          <h4>Luas Area</h4>
+          <p>120 hektar dengan 7 zona habitat tematik</p>
+        </article>
+        <article class="bio-card">
+          <h4>Jam Operasional</h4>
+          <p>Setiap hari 08.00 – 19.00 WIB</p>
+        </article>
+        <article class="bio-card">
+          <h4>Perawatan Satwa</h4>
+          <p>Tim 40 dokter hewan dan nutrisionis spesialis</p>
+        </article>
+        <article class="bio-card">
+          <h4>Fasilitas Unggulan</h4>
+          <p>Laboratorium konservasi, tur AR, pusat riset, taman edukasi keluarga</p>
+        </article>
+        <article class="bio-card">
+          <h4>Kolaborasi</h4>
+          <p>Kerja sama dengan 12 universitas & organisasi lingkungan internasional</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="koleksi" class="collection">
+      <header class="collection-header">
+        <h3>Koleksi Hewan Unggulan</h3>
+        <p>Gunakan pencarian dan filter untuk menemukan profil hewan dengan emoji khas masing-masing.</p>
+      </header>
+
+      <div class="controls">
+        <label class="search-wrapper">
+          <input type="search" id="searchInput" placeholder="Cari nama atau spesies hewan...">
+        </label>
+        <div class="filter-buttons" id="filterButtons">
+          <button class="filter-button active" data-category="semua">Semua</button>
+          <button class="filter-button" data-category="Mamalia">Mamalia</button>
+          <button class="filter-button" data-category="Reptil">Reptil</button>
+          <button class="filter-button" data-category="Burung">Burung</button>
+          <button class="filter-button" data-category="Amfibi">Amfibi</button>
+        </div>
+      </div>
+
+      <div id="animalGrid" class="animal-grid" aria-live="polite"></div>
+      <p id="emptyState" class="empty-state" hidden>
+        Belum ada hasil yang cocok. Coba penelusuran atau filter berbeda, ya!
+      </p>
+    </section>
+
+    <section id="tentang" class="info-section">
+      <article class="info-card">
+        <h4>Tentang HANFANDA</h4>
+        <p>
+          HANFANDA menghadirkan biodata satwa dengan pendekatan edukatif bernuansa futuristik.
+          Kami meramu narasi fauna dengan visual dramatis agar semakin menggugah rasa ingin tahu.
+        </p>
+      </article>
+      <article class="info-card">
+        <h4>Tur Kurasi</h4>
+        <p>
+          Ikuti tur digital eksklusif yang menampilkan momen langka para penghuni kebun binatang,
+          lengkap dengan insight dari pawang profesional.
+        </p>
+      </article>
+      <article class="info-card">
+        <h4>Konservasi</h4>
+        <p>
+          Setiap interaksi di platform ini mendukung program konservasi, mulai dari rehabilitasi habitat
+          hingga edukasi komunitas lokal.
+        </p>
+      </article>
+    </section>
   </main>
 
   <footer id="kontak" class="footer">
-    <!-- Konten footer tetap -->
+    <div>
+      <h5>Hubungi Kami</h5>
+      <p>Email: halo@hanfanda.id</p>
+      <p>Telepon: +62 811-2233-4455</p>
+    </div>
+    <div>
+      <h5>Alamat</h5>
+      <p>Jl. Flora Fauna No. 8, Kota Satwa, Indonesia</p>
+    </div>
+    <div>
+      <h5>Ikuti HANFANDA</h5>
+      <p>@hanfanda.zoo di Instagram, TikTok, dan YouTube</p>
+    </div>
+    <p class="footer-note">© 2025 HANFANDA. Semua hak dilindungi.</p>
   </footer>
 
   <script src="script.js"></script>
