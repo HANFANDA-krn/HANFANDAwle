@@ -10,7 +10,6 @@
   --text-muted: #9fb2d9;
   --text-dark: #0b162d;
   --accent-black: #040404;
-  --accent-black-soft: rgba(4, 4, 4, 0.5);
   --shadow-soft: 0 28px 60px rgba(2, 6, 17, 0.55);
   --shadow-strong: 0 38px 92px rgba(4, 4, 4, 0.55);
   --radius-lg: 28px;
@@ -68,7 +67,7 @@ a {
   z-index: 99;
   display: grid;
   grid-template-columns: auto 1fr auto;
-  alignments: center;
+  align-items: center;
   gap: 20px;
   padding: 22px 8vw;
   background: rgba(5, 13, 31, 0.85);
