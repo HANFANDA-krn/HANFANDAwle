@@ -26,9 +26,10 @@ body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
   color: var(--text-light);
-  background: radial-gradient(circle at top left, rgba(61, 107, 206, 0.3), transparent 55%),
-              radial-gradient(circle at bottom right, rgba(106, 152, 255, 0.25), transparent 50%),
-              linear-gradient(160deg, var(--blue-950) 0%, var(--blue-850) 55%, var(--blue-900) 100%);
+  background:
+    radial-gradient(circle at top left, rgba(61, 107, 206, 0.3), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(106, 152, 255, 0.25), transparent 50%),
+    linear-gradient(160deg, var(--blue-950) 0%, var(--blue-850) 55%, var(--blue-900) 100%);
   min-height: 100vh;
   position: relative;
 }
@@ -142,6 +143,7 @@ a {
   align-items: center;
   gap: 52px;
   padding: 110px 8vw 90px;
+  overflow: hidden;
 }
 
 .hero::before {
@@ -150,6 +152,28 @@ a {
   inset: 0;
   background: linear-gradient(90deg, rgba(5, 13, 31, 0.6), rgba(5, 13, 31, 0.2));
   pointer-events: none;
+}
+
+/* Logo brand di pojok kanan atas */
+.brand-badge {
+  position: absolute;
+  top: clamp(48px, 8vw, 110px);
+  right: clamp(24px, 7vw, 110px);
+  width: clamp(160px, 20vw, 240px);
+  max-height: clamp(160px, 20vw, 240px);
+  object-fit: contain;
+  border-radius: 24px;
+  background: rgba(2, 6, 17, 0.72);
+  padding: clamp(10px, 1.6vw, 18px);
+  box-shadow: 0 34px 72px rgba(2, 6, 17, 0.62);
+  opacity: 0.95;
+  pointer-events: none;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.brand-badge:hover {
+  transform: translateY(-4px);
+  opacity: 1;
 }
 
 .hero-text {
@@ -234,7 +258,6 @@ a {
   display: block;
 }
 
-/* LOGO LEBIH BESAR */
 .hero-card-overlay {
   position: absolute;
   top: 8%;
@@ -267,8 +290,9 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 15% 25%, rgba(4, 4, 4, 0.32), transparent 50%),
-              radial-gradient(circle at 85% 55%, rgba(4, 4, 4, 0.28), transparent 55%);
+  background:
+    radial-gradient(circle at 15% 25%, rgba(4, 4, 4, 0.32), transparent 50%),
+    radial-gradient(circle at 85% 55%, rgba(4, 4, 4, 0.28), transparent 55%);
   pointer-events: none;
 }
 
@@ -507,102 +531,4 @@ a {
 .info-section {
   padding: 90px 8vw 110px;
   display: grid;
-  gap: 26px;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  background: linear-gradient(140deg, rgba(6, 20, 44, 0.95), rgba(3, 9, 24, 0.92));
-}
-
-.info-card {
-  background: rgba(4, 4, 4, 0.35);
-  padding: 28px;
-  border-radius: var(--radius-md);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: var(--shadow-soft);
-  backdrop-filter: blur(8px);
-}
-
-.info-card h4 {
-  margin: 0 0 14px;
-  color: var(--blue-300);
-}
-
-.info-card p {
-  margin: 0;
-  line-height: 1.7;
-  color: rgba(226, 234, 255, 0.78);
-}
-
-.footer {
-  padding: 48px 8vw;
-  background: var(--accent-black);
-  color: rgba(226, 234, 255, 0.75);
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px;
-}
-
-.footer h5 {
-  margin-bottom: 12px;
-  font-size: 1.05rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--blue-300);
-}
-
-.footer-note {
-  grid-column: 1 / -1;
-  text-align: center;
-  margin-top: 24px;
-  font-size: 0.85rem;
-  opacity: 0.6;
-}
-
-@media (max-width: 900px) {
-  .top-bar {
-    grid-template-columns: 1fr;
-    gap: 14px;
-    text-align: center;
-  }
-
-  .top-nav {
-    order: 3;
-    flex-wrap: wrap;
-  }
-
-  .nav-search {
-    order: 2;
-  }
-
-  .hero-card {
-    width: clamp(240px, 55vw, 360px);
-  }
-
-  .hero-card-overlay {
-    top: 6%;
-    right: 6%;
-  }
-}
-
-@media (max-width: 640px) {
-  .hero,
-  .zoo-biodata,
-  .collection,
-  .info-section,
-  .footer {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-
-  .controls {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .filter-buttons {
-    justify-content: flex-start;
-  }
-
-  .hero-card-overlay {
-    width: min(70%, 220px);
-  }
-}
+  gap:
