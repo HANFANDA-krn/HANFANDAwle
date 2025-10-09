@@ -531,4 +531,115 @@ a {
 .info-section {
   padding: 90px 8vw 110px;
   display: grid;
-  gap:
+  gap: 26px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  background: linear-gradient(140deg, rgba(6, 20, 44, 0.95), rgba(3, 9, 24, 0.92));
+}
+
+.info-card {
+  background: rgba(4, 4, 4, 0.35);
+  padding: 28px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(8px);
+}
+
+.info-card h4 {
+  margin: 0 0 14px;
+  color: var(--blue-300);
+}
+
+.info-card p {
+  margin: 0;
+  line-height: 1.7;
+  color: rgba(226, 234, 255, 0.78);
+}
+
+.footer {
+  padding: 48px 8vw;
+  background: var(--accent-black);
+  color: rgba(226, 234, 255, 0.75);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.footer h5 {
+  margin-bottom: 12px;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue-300);
+}
+
+.footer-note {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-top: 24px;
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
+@media (max-width: 900px) {
+  .top-bar {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    text-align: center;
+  }
+
+  .top-nav {
+    order: 3;
+    flex-wrap: wrap;
+  }
+
+  .nav-search {
+    order: 2;
+  }
+
+  .hero-card {
+    width: clamp(240px, 55vw, 360px);
+  }
+
+  .hero-card-overlay {
+    top: 6%;
+    right: 6%;
+  }
+
+  .brand-badge {
+    top: clamp(36px, 12vw, 80px);
+    right: clamp(20px, 10vw, 80px);
+    width: clamp(150px, 32vw, 210px);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero,
+  .zoo-biodata,
+  .collection,
+  .info-section,
+  .footer {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-buttons {
+    justify-content: flex-start;
+  }
+
+  .hero-card-overlay {
+    width: min(70%, 220px);
+  }
+
+  .brand-badge {
+    top: 24px;
+    right: 24px;
+    width: clamp(140px, 42vw, 200px);
+    opacity: 0.9;
+  }
+}
