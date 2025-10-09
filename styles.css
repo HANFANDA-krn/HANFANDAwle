@@ -138,11 +138,10 @@ a {
 
 .hero {
   position: relative;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  align-items: center;
-  gap: 52px;
-  padding: 110px 8vw 90px;
+  display: flex;
+  justify-content: center;
+  padding: 130px 8vw 110px;
+  text-align: center;
   overflow: hidden;
 }
 
@@ -157,25 +156,27 @@ a {
 .hero-text {
   position: relative;
   z-index: 1;
-  max-width: 560px;
+  max-width: 640px;
+  display: grid;
+  gap: 26px;
 }
 
 .hero-text h2 {
-  margin: 0 0 18px;
-  font-size: clamp(2.6rem, 3.6vw, 3.7rem);
+  margin: 0;
+  font-size: clamp(2.8rem, 4.1vw, 4rem);
 }
 
 .hero-text p {
-  margin: 0 0 30px;
-  line-height: 1.7;
+  margin: 0;
+  line-height: 1.75;
   color: rgba(226, 234, 255, 0.78);
 }
 
 .hero-stats {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 28px;
-  margin-bottom: 34px;
 }
 
 .stat-number {
@@ -192,6 +193,7 @@ a {
 }
 
 .cta-button {
+  justify-self: center;
   padding: 16px 36px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-md);
@@ -208,35 +210,6 @@ a {
   transform: translateY(-5px);
   background: linear-gradient(135deg, var(--blue-300), var(--blue-600));
 }
-
-.hero-visual {
-  position: relative;
-  min-height: 360px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  z-index: 0;
-}
-
-.hero-card {
-  position: relative;
-  width: clamp(260px, 32vw, 420px);
-  aspect-ratio: 1.45;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  background: var(--accent-black);
-  box-shadow: var(--shadow-soft);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.hero-card-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* --- Bagian konten berikut tetap sama --- */
 
 .zoo-biodata {
   padding: 90px 8vw 100px;
@@ -555,10 +528,6 @@ a {
   .nav-search {
     order: 2;
   }
-
-  .hero-card {
-    width: clamp(240px, 55vw, 360px);
-  }
 }
 
 @media (max-width: 640px) {
@@ -578,9 +547,5 @@ a {
 
   .filter-buttons {
     justify-content: flex-start;
-  }
-
-  .hero-card {
-    width: clamp(220px, 80vw, 320px);
   }
 }
