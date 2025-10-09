@@ -154,28 +154,6 @@ a {
   pointer-events: none;
 }
 
-/* Logo brand di pojok kanan atas */
-.brand-badge {
-  position: absolute;
-  top: clamp(48px, 8vw, 110px);
-  right: clamp(24px, 7vw, 110px);
-  width: clamp(160px, 20vw, 240px);
-  max-height: clamp(160px, 20vw, 240px);
-  object-fit: contain;
-  border-radius: 24px;
-  background: rgba(2, 6, 17, 0.72);
-  padding: clamp(10px, 1.6vw, 18px);
-  box-shadow: 0 34px 72px rgba(2, 6, 17, 0.62);
-  opacity: 0.95;
-  pointer-events: none;
-  transition: transform 0.4s ease, opacity 0.4s ease;
-}
-
-.brand-badge:hover {
-  transform: translateY(-4px);
-  opacity: 1;
-}
-
 .hero-text {
   position: relative;
   z-index: 1;
@@ -246,38 +224,19 @@ a {
   aspect-ratio: 1.45;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  background: linear-gradient(135deg, rgba(13, 27, 59, 0.95), rgba(7, 18, 42, 0.9));
+  background: var(--accent-black);
   box-shadow: var(--shadow-soft);
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.hero-card-bg {
+.hero-card-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-.hero-card-overlay {
-  position: absolute;
-  top: 8%;
-  right: 8%;
-  width: min(60%, 260px);
-  aspect-ratio: 1 / 1;
-  border-radius: 22px;
-  background: #f6f6f6;
-  box-shadow: 0 22px 44px rgba(4, 4, 4, 0.35);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-}
-
-.hero-card-logo {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
+/* --- Bagian konten berikut tetap sama --- */
 
 .zoo-biodata {
   padding: 90px 8vw 100px;
@@ -600,17 +559,6 @@ a {
   .hero-card {
     width: clamp(240px, 55vw, 360px);
   }
-
-  .hero-card-overlay {
-    top: 6%;
-    right: 6%;
-  }
-
-  .brand-badge {
-    top: clamp(36px, 12vw, 80px);
-    right: clamp(20px, 10vw, 80px);
-    width: clamp(150px, 32vw, 210px);
-  }
 }
 
 @media (max-width: 640px) {
@@ -632,14 +580,7 @@ a {
     justify-content: flex-start;
   }
 
-  .hero-card-overlay {
-    width: min(70%, 220px);
-  }
-
-  .brand-badge {
-    top: 24px;
-    right: 24px;
-    width: clamp(140px, 42vw, 200px);
-    opacity: 0.9;
+  .hero-card {
+    width: clamp(220px, 80vw, 320px);
   }
 }
