@@ -1,609 +1,563 @@
-:root {
-  --blue-950: #020611;
-  --blue-900: #050d1f;
-  --blue-850: #071736;
-  --blue-750: #0d274f;
-  --blue-600: #183d7a;
-  --blue-400: #3c6cce;
-  --blue-300: #6a98ff;
-  --text-light: #f5f8ff;
-  --text-muted: #9fb2d9;
-  --text-dark: #0b162d;
-  --accent-black: #040404;
-  --accent-black-soft: rgba(4, 4, 4, 0.5);
-  --shadow-soft: 0 28px 60px rgba(2, 6, 17, 0.55);
-  --shadow-strong: 0 38px 92px rgba(4, 4, 4, 0.55);
-  --radius-lg: 28px;
-  --radius-md: 18px;
-  --radius-sm: 12px;
-  --transition: 0.35s ease;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  color: var(--text-light);
-  background: radial-gradient(circle at top left, rgba(61, 107, 206, 0.3), transparent 55%),
-              radial-gradient(circle at bottom right, rgba(106, 152, 255, 0.25), transparent 50%),
-              linear-gradient(160deg, var(--blue-950) 0%, var(--blue-850) 55%, var(--blue-900) 100%);
-  min-height: 100vh;
-  position: relative;
-}
-
-body::before,
-body::after {
-  content: "";
-  position: fixed;
-  width: 460px;
-  height: 460px;
-  border-radius: 50%;
-  z-index: -2;
-  background: radial-gradient(circle, rgba(4, 4, 4, 0.75), transparent 65%);
-  filter: blur(42px);
-  opacity: 0.34;
-}
-
-body::before {
-  top: -170px;
-  right: -140px;
-}
-
-body::after {
-  bottom: -200px;
-  left: -180px;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.top-bar {
-  position: sticky;
-  top: 0;
-  z-index: 99;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 20px;
-  padding: 22px 8vw;
-  background: rgba(5, 13, 31, 0.85);
-  backdrop-filter: blur(22px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 20px 36px rgba(2, 6, 17, 0.35);
-}
-
-.brand h1 {
-  margin: 0;
-  font-size: 1.9rem;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--blue-300);
-}
-
-.top-nav {
-  display: flex;
-  justify-content: center;
-  gap: 28px;
-  font-weight: 500;
-  color: var(--text-muted);
-}
-
-.top-nav a {
-  position: relative;
-  padding-bottom: 4px;
-  transition: var(--transition);
-}
-
-.top-nav a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0%;
-  height: 2px;
-  background: var(--blue-300);
-  transition: var(--transition);
-}
-
-.top-nav a:hover {
-  color: var(--text-light);
-}
-
-.top-nav a:hover::after {
-  width: 100%;
-}
-
-.nav-search {
-  border: none;
-  background: var(--accent-black);
-  color: var(--text-light);
-  padding: 12px 20px;
-  border-radius: 999px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  cursor: pointer;
-  transition: var(--transition);
-  box-shadow: 0 16px 28px rgba(4, 4, 4, 0.32);
-}
-
-.nav-search:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 24px 42px rgba(4, 4, 4, 0.35);
-}
-
-.hero {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  align-items: center;
-  gap: 52px;
-  padding: 110px 8vw 90px;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(5, 13, 31, 0.6), rgba(5, 13, 31, 0.2));
-  pointer-events: none;
-}
-
-.hero-text {
-  position: relative;
-  z-index: 1;
-  max-width: 560px;
-}
-
-.hero-text h2 {
-  margin: 0 0 18px;
-  font-size: clamp(2.6rem, 3.6vw, 3.7rem);
-}
-
-.hero-text p {
-  margin: 0 0 30px;
-  line-height: 1.7;
-  color: rgba(226, 234, 255, 0.78);
-}
-
-.hero-stats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 28px;
-  margin-bottom: 34px;
-}
-
-.stat-number {
-  display: block;
-  font-size: 2.1rem;
-  font-weight: 600;
-}
-
-.stat-label {
-  font-size: 0.82rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(206, 218, 249, 0.6);
-}
-
-.cta-button {
-  padding: 16px 36px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: var(--radius-md);
-  background: linear-gradient(135deg, var(--blue-400), var(--blue-600));
-  color: var(--text-light);
-  font-size: 1.02rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition);
-  box-shadow: var(--shadow-strong);
-}
-
-.cta-button:hover {
-  transform: translateY(-5px);
-  background: linear-gradient(135deg, var(--blue-300), var(--blue-600));
-}
-
-.hero-visual {
-  position: relative;
-  height: 360px;
-  border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, rgba(10, 30, 68, 0.92), rgba(3, 9, 24, 0.85));
-  overflow: hidden;
-  box-shadow: var(--shadow-soft);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.abstract-grid {
-  position: absolute;
-  inset: 0;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-  background-size: 42px 42px;
-  opacity: 0.3;
-}
-
-.abstract-stroke {
-  position: absolute;
-  width: 260px;
-  height: 260px;
-  background: rgba(4, 4, 4, 0.65);
-  clip-path: polygon(0% 55%, 35% 45%, 45% 25%, 65% 40%, 95% 30%, 78% 68%, 92% 100%, 58% 78%, 42% 100%, 25% 76%, 12% 88%);
-  filter: blur(1px);
-  mix-blend-mode: screen;
-  transform: rotate(-12deg);
-}
-
-.stroke-left {
-  top: -60px;
-  left: -40px;
-}
-
-.stroke-right {
-  bottom: -60px;
-  right: -50px;
-  transform: rotate(18deg);
-}
-
-.abstract-ring {
-  position: absolute;
-  border: 18px solid rgba(4, 4, 4, 0.55);
-  border-radius: 50%;
-  mix-blend-mode: screen;
-}
-
-.ring-one {
-  width: 220px;
-  height: 220px;
-  top: 80px;
-  left: 120px;
-}
-
-.ring-two {
-  width: 160px;
-  height: 160px;
-  bottom: 40px;
-  right: 110px;
-}
-
-.zoo-biodata {
-  padding: 90px 8vw 100px;
-  background: linear-gradient(145deg, rgba(7, 23, 54, 0.92), rgba(5, 13, 31, 0.88));
-  position: relative;
-  overflow: hidden;
-}
-
-.zoo-biodata::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 15% 25%, rgba(4, 4, 4, 0.32), transparent 50%),
-              radial-gradient(circle at 85% 55%, rgba(4, 4, 4, 0.28), transparent 55%);
-  pointer-events: none;
-}
-
-.section-heading {
-  position: relative;
-  max-width: 620px;
-  margin-bottom: 38px;
-}
-
-.section-heading h3 {
-  margin: 0 0 12px;
-  font-size: 2.1rem;
-  letter-spacing: 0.04em;
-}
-
-.section-heading p {
-  margin: 0;
-  line-height: 1.7;
-  color: rgba(226, 234, 255, 0.72);
-}
-
-.biodata-grid {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 24px;
-}
-
-.bio-card {
-  background: rgba(4, 4, 4, 0.38);
-  border-radius: var(--radius-md);
-  padding: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 24px 48px rgba(2, 6, 17, 0.45);
-  backdrop-filter: blur(6px);
-}
-
-.bio-card h4 {
-  margin: 0 0 10px;
-  color: var(--blue-300);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-size: 0.95rem;
-}
-
-.bio-card p {
-  margin: 0;
-  line-height: 1.6;
-  color: rgba(226, 234, 255, 0.78);
-}
-
-.collection {
-  padding: 90px 8vw 110px;
-}
-
-.collection-header h3 {
-  margin: 0 0 12px;
-  font-size: 2.2rem;
-}
-
-.collection-header p {
-  margin: 0 0 36px;
-  max-width: 580px;
-  color: rgba(207, 218, 249, 0.65);
-}
-
-.controls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 38px;
-}
-
-.search-wrapper {
-  flex: 1 1 260px;
-}
-
-#searchInput {
-  width: 100%;
-  padding: 14px 18px;
-  border-radius: var(--radius-md);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(6, 20, 44, 0.65);
-  color: var(--text-light);
-  font-size: 0.96rem;
-  transition: var(--transition);
-  box-shadow: inset 0 0 0 0 rgba(106, 152, 255, 0.18);
-}
-
-#searchInput::placeholder {
-  color: rgba(221, 234, 255, 0.55);
-}
-
-#searchInput:focus {
-  outline: none;
-  border-color: rgba(106, 152, 255, 0.45);
-  box-shadow: inset 0 0 0 2px rgba(60, 108, 206, 0.24);
-}
-
-.filter-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.filter-button {
-  padding: 10px 18px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(6, 17, 38, 0.55);
-  color: var(--text-muted);
-  font-weight: 500;
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.filter-button:hover {
-  transform: translateY(-2px);
-  background: rgba(6, 17, 38, 0.7);
-  color: var(--text-light);
-}
-
-.filter-button.active {
-  background: linear-gradient(135deg, rgba(60, 108, 206, 0.9), rgba(24, 61, 122, 0.9));
-  color: var(--text-light);
-  box-shadow: 0 18px 34px rgba(5, 17, 38, 0.45);
-}
-
-.animal-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 32px;
-}
-
-.animal-card {
-  position: relative;
-  background: linear-gradient(165deg, rgba(6, 20, 44, 0.92), rgba(13, 39, 79, 0.85));
-  border-radius: var(--radius-lg);
-  padding: 26px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 26px 50px rgba(4, 9, 24, 0.45);
-  overflow: hidden;
-  transition: var(--transition);
-}
-
-.animal-card::after {
-  content: "";
-  position: absolute;
-  inset: 14px;
-  border-radius: calc(var(--radius-lg) - 12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  opacity: 0;
-  transition: var(--transition);
-}
-
-.animal-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 34px 70px rgba(4, 9, 24, 0.55);
-}
-
-.animal-card:hover::after {
-  opacity: 1;
-}
-
-.animal-avatar {
-  width: 72px;
-  height: 72px;
-  border-radius: var(--radius-md);
-  background: rgba(4, 4, 4, 0.54);
-  display: grid;
-  place-items: center;
-  font-size: 2.6rem;
-  margin-bottom: 16px;
-  box-shadow: inset 0 0 18px rgba(255, 255, 255, 0.08);
-}
-
-.chip {
-  display: inline-block;
-  padding: 6px 14px;
-  border-radius: 999px;
-  background: rgba(60, 108, 206, 0.22);
-  color: var(--blue-300);
-  font-weight: 500;
-  font-size: 0.85rem;
-  margin-bottom: 10px;
-}
-
-.animal-card h4 {
-  margin: 10px 0 6px;
-  font-size: 1.35rem;
-  color: var(--text-light);
-}
-
-.species {
-  margin: 0;
-  color: rgba(198, 212, 244, 0.75);
-  font-size: 0.95rem;
-}
-
-.animal-meta {
-  display: grid;
-  gap: 10px;
-  margin: 18px 0;
-  color: rgba(198, 212, 244, 0.7);
-  font-size: 0.93rem;
-}
-
-.animal-meta strong {
-  color: var(--text-light);
-}
-
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.tag {
-  padding: 6px 14px;
-  border-radius: var(--radius-sm);
-  background: rgba(4, 4, 4, 0.55);
-  color: rgba(198, 212, 244, 0.7);
-  font-size: 0.82rem;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.empty-state {
-  margin-top: 32px;
-  text-align: center;
-  color: rgba(206, 218, 249, 0.7);
-  font-style: italic;
-}
-
-.info-section {
-  padding: 90px 8vw 110px;
-  display: grid;
-  gap: 26px;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  background: linear-gradient(140deg, rgba(6, 20, 44, 0.95), rgba(3, 9, 24, 0.92));
-}
-
-.info-card {
-  background: rgba(4, 4, 4, 0.35);
-  padding: 28px;
-  border-radius: var(--radius-md);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: var(--shadow-soft);
-  backdrop-filter: blur(8px);
-}
-
-.info-card h4 {
-  margin: 0 0 14px;
-  color: var(--blue-300);
-}
-
-.info-card p {
-  margin: 0;
-  line-height: 1.7;
-  color: rgba(226, 234, 255, 0.78);
-}
-
-.footer {
-  padding: 48px 8vw;
-  background: var(--accent-black);
-  color: rgba(226, 234, 255, 0.75);
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px;
-}
-
-.footer h5 {
-  margin-bottom: 12px;
-  font-size: 1.05rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--blue-300);
-}
-
-.footer-note {
-  grid-column: 1 / -1;
-  text-align: center;
-  margin-top: 24px;
-  font-size: 0.85rem;
-  opacity: 0.6;
-}
-
-@media (max-width: 900px) {
-  .top-bar {
-    grid-template-columns: 1fr;
-    gap: 14px;
-    text-align: center;
+const animals = [
+  // Mamalia (12)
+  {
+    emoji: "🐅",
+    name: "Harimau Sumatra",
+    species: "Panthera tigris sumatrae",
+    category: "Mamalia",
+    habitat: "Hutan hujan tropis Sumatra",
+    diet: "Karnivora (rusa, babi hutan, primata)",
+    character: "Lincah, soliter, dan sangat protektif",
+    funFact: "Lorengnya paling rapat dibanding subspecies harimau lain."
+  },
+  {
+    emoji: "🦧",
+    name: "Orangutan Kalimantan",
+    species: "Pongo pygmaeus",
+    category: "Mamalia",
+    habitat: "Kanopi hutan tropis Kalimantan",
+    diet: "Omnivora (buah, daun, serangga, madu)",
+    character: "Pendiam, penyayang, dan pintar menggunakan alat",
+    funFact: "Menghabiskan 90% waktunya di atas pohon."
+  },
+  {
+    emoji: "🐘",
+    name: "Gajah Asia",
+    species: "Elephas maximus",
+    category: "Mamalia",
+    habitat: "Hutan tropis dan rawa Asia Tenggara",
+    diet: "Herbivora (rumput, daun, kulit pohon, buah)",
+    character: "Perasa, berkelompok, dan berdaya ingat tinggi",
+    funFact: "Dapat mengenali wajah manusia bertahun-tahun kemudian."
+  },
+  {
+    emoji: "🦬",
+    name: "Anoa Pegunungan",
+    species: "Bubalus quarlesi",
+    category: "Mamalia",
+    habitat: "Hutan pegunungan Sulawesi",
+    diet: "Herbivora (rumput, pucuk daun, pakis)",
+    character: "Tangguh, pemalu, aktif di pagi hari",
+    funFact: "Sering dijuluki kerbau kerdil endemik Sulawesi."
+  },
+  {
+    emoji: "🐗",
+    name: "Tapir Malaya",
+    species: "Tapirus indicus",
+    category: "Mamalia",
+    habitat: "Hutan hujan Asia Tenggara",
+    diet: "Herbivora (daun, ranting, buah)",
+    character: "Tenang, suka menjelajah malam hari",
+    funFact: "Pola hitam-putihnya berfungsi kamuflase di kegelapan."
+  },
+  {
+    emoji: "🐻",
+    name: "Beruang Madu",
+    species: "Helarctos malayanus",
+    category: "Mamalia",
+    habitat: "Hutan tropis Asia Tenggara",
+    diet: "Omnivora (buah, serangga, madu)",
+    character: "Rasa penasaran tinggi dan gemar memanjat",
+    funFact: "Memiliki lidah sangat panjang untuk mengambil madu."
+  },
+  {
+    emoji: "🦦",
+    name: "Binturong",
+    species: "Arctictis binturong",
+    category: "Mamalia",
+    habitat: "Hutan lembap Asia Tenggara",
+    diet: "Omnivora (buah, telur, serangga)",
+    character: "Nocturnal, pandai memanjat dengan ekor prehensil",
+    funFact: "Aromanya mirip popcorn mentega akibat senyawa unik."
+  },
+  {
+    emoji: "🦌",
+    name: "Rusa Bawean",
+    species: "Axis kuhlii",
+    category: "Mamalia",
+    habitat: "Hutan dan padang rumput Bawean",
+    diet: "Herbivora (rumput, daun, tunas)",
+    character: "Waspada, hidup berkelompok kecil",
+    funFact: "Termasuk satwa endemik dengan populasi sangat terbatas."
+  },
+  {
+    emoji: "🐈",
+    name: "Linsang Sunda",
+    species: "Hemigalus derbyanus",
+    category: "Mamalia",
+    habitat: "Hutan primer Sumatra dan Kalimantan",
+    diet: "Karnivora kecil (serangga, burung, reptil kecil)",
+    character: "Gesit, arboreal, gemar berburu malam hari",
+    funFact: "Punya ekor panjang yang membantu keseimbangan di dahan."
+  },
+  {
+    emoji: "🦥",
+    name: "Kukang Jawa",
+    species: "Nycticebus javanicus",
+    category: "Mamalia",
+    habitat: "Hutan sekunder Jawa Barat",
+    diet: "Omnivora (buah, nektar, serangga)",
+    character: "Bergerak perlahan dan bertahan dengan racun ringan",
+    funFact: "Memiliki gigitan beracun pertama di antara primata."
+  },
+  {
+    emoji: "🦔",
+    name: "Trenggiling Sunda",
+    species: "Manis javanica",
+    category: "Mamalia",
+    habitat: "Hutan tropis Asia Tenggara",
+    diet: "Myrmecophagous (semut, rayap)",
+    character: "Pemalu, menggulung diri saat terancam",
+    funFact: "Tersusun dari sisik keratin yang terus tumbuh."
+  },
+  {
+    emoji: "🦒",
+    name: "Jerapah Rothschild",
+    species: "Giraffa camelopardalis rothschildi",
+    category: "Mamalia",
+    habitat: "Sabana Afrika Timur",
+    diet: "Herbivora (daun akasia, pucuk tanaman)",
+    character: "Lembut, waspada, dan sosial",
+    funFact: "Memiliki pola bintik lebih terang dibanding subspecies lain."
+  },
+
+  // Reptil (12)
+  {
+    emoji: "🦎",
+    name: "Komodo",
+    species: "Varanus komodoensis",
+    category: "Reptil",
+    habitat: "Padang savana dan hutan kering Nusa Tenggara",
+    diet: "Karnivora oportunis (bangkai, mamalia, burung)",
+    character: "Tenang menunggu mangsa, menyergap dengan gigitan kuat",
+    funFact: "Air liurnya mengandung lebih dari 50 jenis bakteri."
+  },
+  {
+    emoji: "🐊",
+    name: "Buaya Senyulong",
+    species: "Tomistoma schlegelii",
+    category: "Reptil",
+    habitat: "Sungai gambut Kalimantan dan Sumatra",
+    diet: "Ikan, moluska, mamalia kecil",
+    character: "Penyergap sabar dengan rahang panjang",
+    funFact: "Salah satu reptil air tawar terbesar di Asia."
+  },
+  {
+    emoji: "🦕",
+    name: "Iguana Hijau",
+    species: "Iguana iguana",
+    category: "Reptil",
+    habitat: "Hutan hujan Amerika Tengah dan Selatan",
+    diet: "Herbivora (daun, bunga, buah)",
+    character: "Santai, pencinta sinar matahari, jago memanjat",
+    funFact: "Dapat menahan napas hingga 30 menit saat menyelam."
+  },
+  {
+    emoji: "🐍",
+    name: "Ular Sanca Hijau",
+    species: "Morelia viridis",
+    category: "Reptil",
+    habitat: "Kanopi hutan Papua dan Australia",
+    diet: "Karnivora (burung kecil, mamalia kecil)",
+    character: "Duduk melingkar di dahan, berburu secara menyergap",
+    funFact: "Warna emeraldnya membantu kamuflase di dedaunan."
+  },
+  {
+    emoji: "🐢",
+    name: "Kura-kura Leher Ular",
+    species: "Chelodina novaeguineae",
+    category: "Reptil",
+    habitat: "Sungai dan rawa Papua",
+    diet: "Omnivora (ikan, krustasea, tumbuhan air)",
+    character: "Pemalu, menenggelamkan tubuh ketika terkejut",
+    funFact: "Memiliki leher hampir sepanjang cangkangnya."
+  },
+  {
+    emoji: "🐉",
+    name: "Biawak Air Asia",
+    species: "Varanus salvator",
+    category: "Reptil",
+    habitat: "Sungai, mangrove, dan hutan Asia Tenggara",
+    diet: "Karnivora oportunis (ikan, bangkai, unggas)",
+    character: "Perenang handal, sering berjemur di tepian",
+    funFact: "Dapat bertahan di air asin berminggu-minggu."
+  },
+  {
+    emoji: "🐢",
+    name: "Penyu Hijau",
+    species: "Chelonia mydas",
+    category: "Reptil",
+    habitat: "Perairan tropis dunia",
+    diet: "Herbivora (rumput laut, alga)",
+    character: "Migran jarak jauh dengan navigasi magnetik",
+    funFact: "Sering kembali ke pantai kelahiran untuk bertelur."
+  },
+  {
+    emoji: "🐍",
+    name: "Ular Weling Asia",
+    species: "Bungarus fasciatus",
+    category: "Reptil",
+    habitat: "Hutan dan sawah Asia Tenggara",
+    diet: "Karnivora (ular lain, kadal, tikus)",
+    character: "Nocturnal dan beracun neurotoksik kuat",
+    funFact: "Pola hitam-kuningnya jadi sinyal peringatan alami."
+  },
+  {
+    emoji: "🐍",
+    name: "Kobra Jawa",
+    species: "Naja sputatrix",
+    category: "Reptil",
+    habitat: "Padang belukar, ladang, hutan sekunder",
+    diet: "Karnivora (tikus, katak, burung kecil)",
+    character: "Siap mengembangkan tudung saat merasa terancam",
+    funFact: "Mampu menyemprotkan bisa hingga 2 meter."
+  },
+  {
+    emoji: "🦎",
+    name: "Tokek Raksasa",
+    species: "Gekko gecko",
+    category: "Reptil",
+    habitat: "Hutan tropis dan pemukiman Asia Tenggara",
+    diet: "Serangga besar, laba-laba, kadal kecil",
+    character: "Suara “to-kay” khasnya terdengar hingga 50 meter",
+    funFact: "Memiliki bantalan perekat ultra kuat di telapak."
+  },
+  {
+    emoji: "🐊",
+    name: "Buaya Muara",
+    species: "Crocodylus porosus",
+    category: "Reptil",
+    habitat: "Sungai, muara, pesisir Australia hingga Indonesia",
+    diet: "Karnivora besar (ikan, mamalia, burung air)",
+    character: "Teritorial dan penguasa puncak rantai makanan",
+    funFact: "Reptil terbesar di dunia dengan panjang bisa 6 meter."
+  },
+  {
+    emoji: "🐍",
+    name: "Piton Batik",
+    species: "Python reticulatus",
+    category: "Reptil",
+    habitat: "Hutan dan persawahan Asia Tenggara",
+    diet: "Karnivora (babi hutan, kijang, unggas)",
+    character: "Terkuat dalam melilit mangsa hingga kewalahan",
+    funFact: "Memegang rekor ular terpanjang yang pernah tercatat."
+  },
+
+  // Burung (12)
+  {
+    emoji: "🦜",
+    name: "Kakatua Raja",
+    species: "Probosciger aterrimus",
+    category: "Burung",
+    habitat: "Hutan hujan Papua dan Australia Utara",
+    diet: "Biji-bijian, kacang-kacangan, buah",
+    character: "Cerdas, vokal, suka bersosialisasi",
+    funFact: "Jambul besar ditegakkan untuk sinyal emosi."
+  },
+  {
+    emoji: "🦩",
+    name: "Flamingo Karibia",
+    species: "Phoenicopterus ruber",
+    category: "Burung",
+    habitat: "Laguna garam Karibia dan Amerika Selatan",
+    diet: "Alga mikro, udang kecil, larva",
+    character: "Anggun, hidup berkoloni besar",
+    funFact: "Warna merah muda berasal dari pigmen karotenoid."
+  },
+  {
+    emoji: "🐦",
+    name: "Burung Maleo",
+    species: "Macrocephalon maleo",
+    category: "Burung",
+    habitat: "Hutan dan pantai Sulawesi",
+    diet: "Serangga, buah, biji-bijian",
+    character: "Setia pada pasangan, rajin menggali pasir panas",
+    funFact: "Telurnya lima kali lebih besar dari telur ayam."
+  },
+  {
+    emoji: "🦅",
+    name: "Elang Jawa",
+    species: "Nisaetus bartelsi",
+    category: "Burung",
+    habitat: "Hutan pegunungan Jawa",
+    diet: "Karnivora (kukang, tupai, burung kecil)",
+    character: "Teritorial, terbang tinggi memantau wilayah",
+    funFact: "Menjadi lambang negara Indonesia."
+  },
+  {
+    emoji: "🦚",
+    name: "Merak Hijau",
+    species: "Pavo muticus",
+    category: "Burung",
+    habitat: "Hutan kering dan savana Asia Tenggara",
+    diet: "Omnivora (biji, serangga, reptil kecil)",
+    character: "Jantan terkenal dengan tarian kipas ekor megah",
+    funFact: "Termasuk spesies merak paling terancam punah."
+  },
+  {
+    emoji: "🐦",
+    name: "Rangkong Badak",
+    species: "Buceros rhinoceros",
+    category: "Burung",
+    habitat: "Hutan dipterokarpa Sumatra dan Kalimantan",
+    diet: "Buah ara, serangga, hewan kecil",
+    character: "Monogami, membesarkan anak di lubang pohon",
+    funFact: "Kepala berbonggol besar berfungsi sebagai resonator suara."
+  },
+  {
+    emoji: "🕊️",
+    name: "Cendrawasih Kuning Kecil",
+    species: "Paradisaea minor",
+    category: "Burung",
+    habitat: "Hutan hujan Papua",
+    diet: "Buah ara, serangga, arthropoda",
+    character: "Jantan memamerkan tarian rumit saat berbiak",
+    funFact: "Dijuluki “burung surga” karena bulu hias menawan."
+  },
+  {
+    emoji: "🐦",
+    name: "Bangau Tongtong",
+    species: "Leptoptilos javanicus",
+    category: "Burung",
+    habitat: "Rawa, pesisir, persawahan Asia Tenggara",
+    diet: "Ikan, amfibi, bangkai",
+    character: "Pemburu tenang di perairan dangkal",
+    funFact: "Populasi global turun drastis akibat degradasi lahan basah."
+  },
+  {
+    emoji: "🦉",
+    name: "Celepuk Rinjani",
+    species: "Otus jolandae",
+    category: "Burung",
+    habitat: "Hutan pegunungan Lombok",
+    diet: "Serangga malam, kadal kecil",
+    character: "Nocturnal dengan panggilan berulang bernada tinggi",
+    funFact: "Baru diakui sebagai spesies tersendiri pada 2013."
+  },
+  {
+    emoji: "🐥",
+    name: "Jalak Bali",
+    species: "Leucopsar rothschildi",
+    category: "Burung",
+    habitat: "Hutan monsun Bali",
+    diet: "Serangga, biji, buah",
+    character: "Sangat sosial, kerap berkicau keras",
+    funFact: "Ikon konservasi karena status kritis di alam liar."
+  },
+  {
+    emoji: "🦆",
+    name: "Bebek Mandarin",
+    species: "Aix galericulata",
+    category: "Burung",
+    habitat: "Danau dan sungai Asia Timur",
+    diet: "Biji, tanaman air, krustasea kecil",
+    character: "Monogami dan jadi simbol kesetiaan",
+    funFact: "Jantan memiliki pola warna pelangi pada musim kawin."
+  },
+  {
+    emoji: "🐧",
+    name: "Penguin Humboldt",
+    species: "Spheniscus humboldti",
+    category: "Burung",
+    habitat: "Pesisir Peru dan Chili",
+    diet: "Ikan teri, sarden, krill",
+    character: "Renang cepat, bersarang di gua batu",
+    funFact: "Mengandalkan arus Humboldt yang dingin untuk berburu."
+  },
+
+  // Amfibi (12)
+  {
+    emoji: "🐸",
+    name: "Katak Bertanduk Suriname",
+    species: "Ceratophrys cornuta",
+    category: "Amfibi",
+    habitat: "Hutan lembap Amerika Selatan",
+    diet: "Serangga, kadal, mamalia kecil",
+    character: "Diam menunggu mangsa lewat, lalu menerkam kilat",
+    funFact: "Mulutnya bisa terbuka hampir setengah tubuhnya."
+  },
+  {
+    emoji: "🧬",
+    name: "Axolotl Meksiko",
+    species: "Ambystoma mexicanum",
+    category: "Amfibi",
+    habitat: "Danau Xochimilco, Meksiko",
+    diet: "Cacing, moluska, krustasea kecil",
+    character: "Tenang, aktif malam hari, mudah penasaran",
+    funFact: "Mampu meregenerasi organ vital termasuk jantung."
+  },
+  {
+    emoji: "🔥🦎",
+    name: "Salamander Api Tiongkok",
+    species: "Cynops orientalis",
+    category: "Amfibi",
+    habitat: "Kolam dan parit subtropis Tiongkok",
+    diet: "Cacing, larva, krustasea mini",
+    character: "Pelan dan mengeluarkan toksin lembut dari kulit",
+    funFact: "Bagian perutnya bercorak jingga menyala."
+  },
+  {
+    emoji: "🎯🐸",
+    name: "Katak Panah Beracun Amazon",
+    species: "Dendrobates tinctorius",
+    category: "Amfibi",
+    habitat: "Hutan hujan Amazon",
+    diet: "Semut, tungau, rayap",
+    character: "Aktif di siang hari dengan warna peringatan",
+    funFact: "Racun kulitnya menginspirasi panah suku asli."
+  },
+  {
+    emoji: "🗻🐸",
+    name: "Salamandra Raksasa Jepang",
+    species: "Andrias japonicus",
+    category: "Amfibi",
+    habitat: "Sungai pegunungan Jepang",
+    diet: "Ikan, krustasea, amfibi lain",
+    character: "Nocturnal, mengandalkan indera penciuman tajam",
+    funFact: "Bisa mencapai panjang 1,5 meter."
+  },
+  {
+    emoji: "🌿🐸",
+    name: "Katak Pohon Hijau Australia",
+    species: "Litoria caerulea",
+    category: "Amfibi",
+    habitat: "Hutan lembap dan kota Australia",
+    diet: "Serangga, laba-laba, kadal kecil",
+    character: "Tahan kering, dapat menyimpan air di tubuh",
+    funFact: "Kerap dijuluki “katak tersenyum” karena bibir melengkung."
+  },
+  {
+    emoji: "🌾🐸",
+    name: "Katak Sengon Jawa",
+    species: "Polypedates leucomystax",
+    category: "Amfibi",
+    habitat: "Sawah dan kebun Asia Tenggara",
+    diet: "Serangga malam, larva nyamuk",
+    character: "Adaptif terhadap lingkungan manusia",
+    funFact: "Telurnya diletakkan dalam busa di dahan di atas air."
+  },
+  {
+    emoji: "🪵🐸",
+    name: "Katak Lumpur Papua",
+    species: "Baru cryptotis",
+    category: "Amfibi",
+    habitat: "Hutan rawa Papua Nugini",
+    diet: "Serangga tanah, larva kumbang",
+    character: "Menghabiskan hidup di bawah serasah",
+    funFact: "Ukuran tubuhnya mini, hanya 13 mm."
+  },
+  {
+    emoji: "🌀",
+    name: "Sesilia Tropis",
+    species: "Ichthyophis glutinosus",
+    category: "Amfibi",
+    habitat: "Tanah lembap Asia Selatan",
+    diet: "Cacing tanah, serangga bawah tanah",
+    character: "Serupa belut tanpa kaki, licin dan fotofobik",
+    funFact: "Bernapas dengan paru dan kulit secara bersamaan."
+  },
+  {
+    emoji: "💧🐸",
+    name: "Katak Air Afrika",
+    species: "Pyxicephalus adspersus",
+    category: "Amfibi",
+    habitat: "Savana Afrika Selatan",
+    diet: "Segala mangsa yang muat di mulutnya",
+    character: "Agresif saat menjaga telur",
+    funFact: "Jantan menggali parit untuk menyelamatkan kecebong dari kekeringan."
+  },
+  {
+    emoji: "🐗🐸",
+    name: "Kodok Babi Kalimantan",
+    species: "Kalophrynus pleurostigma",
+    category: "Amfibi",
+    habitat: "Hutan hujan Kalimantan",
+    diet: "Semut, rayap, serangga kecil",
+    character: "Suara melengking mirip rengekan babi kecil",
+    funFact: "Memiliki kulit bertekstur untuk kamuflase di serasah."
+  },
+  {
+    emoji: "✨🦎",
+    name: "Axolotl Albino",
+    species: "Ambystoma mexicanum (Morph Albino)",
+    category: "Amfibi",
+    habitat: "Penangkaran konservasi air tawar",
+    diet: "Cacing darah, pellet nutrisi, udang air asin",
+    character: "Jinak dan responsif terhadap pergerakan",
+    funFact: "Populer sebagai ikon penelitian regenerasi modern."
   }
+];
 
-  .top-nav {
-    order: 3;
-    flex-wrap: wrap;
-  }
+const animalGrid = document.getElementById("animalGrid");
+const searchInput = document.getElementById("searchInput");
+const filterButtons = document.getElementById("filterButtons");
+const emptyState = document.getElementById("emptyState");
 
-  .nav-search {
-    order: 2;
-  }
+function createAnimalCard(animal) {
+  const card = document.createElement("article");
+  card.className = "animal-card";
+  card.innerHTML = `
+    <div class="animal-avatar">${animal.emoji}</div>
+    <span class="chip">${animal.category}</span>
+    <h4>${animal.name}</h4>
+    <p class="species">${animal.species}</p>
+    <div class="animal-meta">
+      <div><strong>Habitat:</strong> ${animal.habitat}</div>
+      <div><strong>Pola makan:</strong> ${animal.diet}</div>
+      <div><strong>Karakter:</strong> ${animal.character}</div>
+    </div>
+    <div class="tags">
+      <span class="tag">Fun Fact</span>
+      <span class="tag">${animal.funFact}</span>
+    </div>
+  `;
+  return card;
 }
 
-@media (max-width: 640px) {
-  .hero,
-  .zoo-biodata,
-  .collection,
-  .info-section,
-  .footer {
-    padding-left: 24px;
-    padding-right: 24px;
+function renderAnimals(list) {
+  animalGrid.innerHTML = "";
+  if (list.length === 0) {
+    emptyState.hidden = false;
+    return;
   }
-
-  .controls {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .filter-buttons {
-    justify-content: flex-start;
-  }
+  emptyState.hidden = true;
+  list.forEach(animal => animalGrid.appendChild(createAnimalCard(animal)));
 }
+
+function applyFilters() {
+  const keyword = searchInput.value.trim().toLowerCase();
+  const activeButton = filterButtons.querySelector(".filter-button.active");
+  const activeCategory = activeButton ? activeButton.dataset.category : "semua";
+
+  const filtered = animals.filter(animal => {
+    const matchesCategory = activeCategory === "semua" || animal.category === activeCategory;
+    const matchesKeyword =
+      animal.name.toLowerCase().includes(keyword) ||
+      animal.species.toLowerCase().includes(keyword);
+    return matchesCategory && matchesKeyword;
+  });
+
+  renderAnimals(filtered);
+}
+
+filterButtons.addEventListener("click", event => {
+  const target = event.target;
+  if (!target.classList.contains("filter-button")) return;
+
+  filterButtons.querySelectorAll(".filter-button")
+    .forEach(button => button.classList.remove("active"));
+  target.classList.add("active");
+  applyFilters();
+});
+
+searchInput.addEventListener("input", () => {
+  applyFilters();
+});
+
+function scrollToCollection() {
+  document.getElementById("koleksi").scrollIntoView({ behavior: "smooth" });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderAnimals(animals);
+});
