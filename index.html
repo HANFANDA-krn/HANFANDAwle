@@ -1,138 +1,129 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>HANFANDA — Biodata Hewan Darat</title>
-  <meta name="description" content="HANFANDA: Ensiklopedia mini hewan darat dengan peta interaktif bergaya globe, warna bendera, dan filter negara." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HANFANDA Zoo Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Latar animasi abstrak -->
-  <div class="bg" aria-hidden="true">
-    <div class="bg-layer blob blob-a"></div>
-    <div class="bg-layer blob blob-b"></div>
-    <div class="bg-layer ring ring-a"></div>
-    <div class="bg-layer ring ring-b"></div>
-    <div class="bg-layer stripes"></div>
-    <div class="bg-layer grain"></div>
-  </div>
-
-  <header class="site-header glass">
-    <div class="header-inner">
-      <h1 class="brand">
-        <span class="brand-top">HANFANDA</span>
-        <span class="brand-main">Biodata Hewan Darat</span>
-      </h1>
-      <p class="tagline">Peta globe • Warna bendera • Pilih negara untuk melihat hewan yang hidup di sana.</p>
-
-      <div class="controls">
-        <label class="control search">
-          <input id="search" type="search" placeholder="Cari hewan (contoh: singa, jerapah, panda)..." autocomplete="off" />
-          <span class="kbd">/</span>
-        </label>
-
-        <label class="control sort">
-          <span>Urutkan</span>
-          <select id="sort">
-            <option value="name-asc">Nama (A–Z)</option>
-            <option value="name-desc">Nama (Z–A)</option>
-            <option value="status">Status Konservasi</option>
-            <option value="weight">Berat (terberat)</option>
-            <option value="lifespan">Umur (terpanjang)</option>
-          </select>
-        </label>
-
-        <button id="density" class="btn ghost" aria-pressed="false" title="Ubah kerapatan tampilan">Kerapatan</button>
-      </div>
+  <header class="top-bar">
+    <div class="brand">
+      <h1>HANFANDA</h1>
     </div>
+    <nav class="top-nav">
+      <a href="#koleksi">Koleksi</a>
+      <a href="#tentang">Tentang</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+    <button class="nav-search" aria-label="Cari koleksi hewan">
+      <span>Search</span>
+    </button>
   </header>
 
-  <main class="container">
-    <!-- Peta Interaktif: Globe -->
-    <section id="mapSection" class="map-section">
-      <div class="map-toolbar glass">
-        <div class="map-left">
-          <strong class="mono">Peta (Globe)</strong>
-          <label class="inl"><input type="checkbox" id="showMarkers" checked /> Marker</label>
-          <label class="inl"><input type="checkbox" id="showRanges" checked /> Sebaran</label>
-        </div>
-        <div class="map-right">
-          <div class="country-select">
-            <span class="mono">Negara</span>
-            <select id="countrySelect">
-              <option value="">— Pilih negara —</option>
-            </select>
-            <button id="clearCountry" class="btn ghost" title="Hapus filter negara">Bersihkan</button>
-            <span id="flagSwatch" class="flag-swatch" title="Warna bendera"></span>
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <h2>Galeri Biodata HANFANDA</h2>
+        <p>
+          Jelajahi biodata satwa favoritmu dalam atmosfer biru mendalam dengan sentuhan abstrak hitam.
+          Informasi lengkap dipadukan dengan visual dramatis yang memikat.
+        </p>
+        <div class="hero-stats">
+          <div>
+            <span class="stat-number">50+</span>
+            <span class="stat-label">Satwa Terdaftar</span>
           </div>
-          <button id="fitVisible" class="btn ghost" title="Zoom agar hasil yang terlihat pas">Zoom Hasil</button>
-          <button id="fitAll" class="btn ghost" title="Zoom Semua Habitat">Zoom Semua</button>
+          <div>
+            <span class="stat-number">15</span>
+            <span class="stat-label">Program Edukasi</span>
+          </div>
+          <div>
+            <span class="stat-number">7</span>
+            <span class="stat-label">Zona Habitat</span>
+          </div>
         </div>
+        <button class="cta-button" onclick="scrollToCollection()">Mulai Menjelajah</button>
       </div>
-      <div id="map" role="region" aria-label="Peta habitat hewan"></div>
-      <p class="map-note muted">Sebaran bersifat perkiraan untuk edukasi. Klik negara atau pilih dari dropdown untuk menampilkan hewan yang ada di negara tersebut.</p>
+      <div class="hero-visual" aria-hidden="true">
+        <div classanager="abstract-stroke stroke-left"></div>
+        <div class="abstract-stroke stroke-right"></div>
+        <div class="abstract-ring ring-one"></div>
+        <div class="abstract-ring ring-two"></div>
+        <div class="abstract-grid"></div>
+      </div>
     </section>
 
-    <!-- Grid kartu -->
-    <section id="cards" class="grid" aria-live="polite"></section>
+    <section id="koleksi" class="collection">
+      <header class="collection-header">
+        <h3>Koleksi Hewan Unggulan</h3>
+        <p>Gunakan pencarian dan filter untuk menemukan profil hewan dengan emoji khas masing-masing.</p>
+      </header>
 
-    <div id="empty" class="empty-state hidden">
-      <div class="empty-card glass">
-        <div class="empty-emoji" aria-hidden="true">🧐</div>
-        <h3>Tidak ada hasil</h3>
-        <p>Coba kata kunci lain atau hapus filter.</p>
-        <button id="clearSearch" class="btn">Hapus Pencarian</button>
+      <div class="controls">
+        <label class="search-wrapper">
+          <input type="search" id="searchInput" placeholder="Cari nama atau spesies hewan...">
+        </label>
+        <div class="filter-buttons" id="filterButtons">
+          <button class="filter-button active" data-category="semua">Semua</button>
+          <button class="filter-button" data-category="Mamalia">Mamalia</button>
+          <button class="filter-button" data-category="Reptil">Reptil</button>
+          <button class="filter-button" data-category="Burung">Burung</button>
+          <button class="filter-button" data-category="Amfibi">Amfibi</button>
+        </div>
       </div>
-    </div>
+
+      <div id="animalGrid" class="animal-grid" aria-live="polite"></div>
+      <p id="emptyState" class="empty-state" hidden>
+        Belum ada hasil yang cocok. Coba penelusuran atau filter berbeda, ya!
+      </p>
+    </section>
+
+    <section id="tentang" class="info-section">
+      <article class="info-card">
+        <h4>Tentang HANFANDA</h4>
+        <p>
+          HANFANDA menghadirkan biodata satwa dengan pendekatan edukatif bernuansa futuristik. Kami meramu narasi
+          fauna dengan visual dramatis agar semakin menggugah rasa ingin tahu.
+        </p>
+      </article>
+      <article class="info-card">
+        <h4>Tur Kurasi</h4>
+        <p>
+          Ikuti tur digital eksklusif yang menampilkan momen langka para penghuni kebun binatang, lengkap dengan
+          insight dari pawang profesional.
+        </p>
+      </article>
+      <article class="info-card">
+        <h4>Konservasi</h4>
+        <p>
+          Setiap interaksi di platform ini mendukung program konservasi, mulai dari rehabilitasi habitat hingga
+          edukasi komunitas lokal.
+        </p>
+      </article>
+    </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <p class="mono">HANFANDA • Tipografi: Playfair Display, Inter, Space Mono.</p>
-      <p class="muted">Konten edukasi; sebaran geografis bersifat ilustratif.</p>
+  <footer id="kontak" class="footer">
+    <div>
+      <h5>Hubungi Kami</h5>
+      <p>Email: halo@hanfanda.id</p>
+      <p>Telepon: +62 811-2233-4455</p>
     </div>
+    <div>
+      <h5>Alamat</h5>
+      <p>Jl. Flora Fauna No. 8, Kota Satwa, Indonesia</p>
+    </div>
+    <div>
+      <h5>Ikuti HANFANDA</h5>
+      <p>@hanfanda.zoo di Instagram, TikTok, dan YouTube</p>
+    </div>
+    <p class="footer-note">© 2025 HANFANDA. Semua hak dilindungi.</p>
   </footer>
 
-  <!-- Modal detail -->
-  <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal-backdrop" data-close></div>
-    <div class="modal-panel glass">
-      <button class="modal-close" aria-label="Tutup" data-close>&times;</button>
-      <div class="modal-content">
-        <div class="modal-hero">
-          <div class="modal-icon" id="modalIcon" aria-hidden="true">🐾</div>
-          <div class="modal-titles">
-            <h2 id="modalTitle" class="modal-title"></h2>
-            <p id="modalLatin" class="latin mono"></p>
-          </div>
-        </div>
-
-        <div class="modal-grid">
-          <div class="kv"><span class="k">Habitat</span><span class="v" id="modalHabitat"></span></div>
-          <div class="kv"><span class="k">Makanan</span><span class="v" id="modalDiet"></span></div>
-          <div class="kv"><span class="k">Status</span><span class="v" id="modalStatus"></span></div>
-          <div class="kv"><span class="k">Umur</span><span class="v" id="modalLifespan"></span></div>
-          <div class="kv"><span class="k">Berat</span><span class="v" id="modalWeight"></span></div>
-          <div class="kv"><span class="k">Tinggi/Panjang</span><span class="v" id="modalLength"></span></div>
-        </div>
-
-        <div class="modal-facts">
-          <h3>Fakta Singkat</h3>
-          <ul id="modalFacts" class="facts-list"></ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Toast -->
-  <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
-
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="" defer></script>
-  <script src="script.js" defer></script>
+  <script src="script.js"></script>
 </body>
 </html>
