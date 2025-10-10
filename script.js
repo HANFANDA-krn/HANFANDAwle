@@ -179,7 +179,7 @@ const animals = [
     region: "Amerika Utara (migrasi Kanada–Meksiko)",
     status: "Rentang hidup 9 bulan (generasi migrasi)",
     conservation: "Terancam (IUCN Endangered)",
-    tags: ["Migrasi panjang", "Kodar bunga liar", "Siklus metamorfosis"]
+    tags: ["Migrasi panjang", "Koridor bunga liar", "Siklus metamorfosis"]
   }
 ];
 
